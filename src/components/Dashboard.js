@@ -15,6 +15,7 @@ import MapChart from "./MapChart";
 import CountryDetails from "./CountryDetails";
 import ReactTooltip from "react-tooltip";
 import axios from "axios";
+import countryData from "./data/countryData.json";
 
 function Copyright() {
   return (
@@ -66,7 +67,7 @@ export default function Dashboard() {
   const [tooltipContent, setTooltipContent] = React.useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
+    /* const fetchData = async () => {
       const result = await axios(
         "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?limit=220&page=1"
       );
@@ -75,7 +76,9 @@ export default function Dashboard() {
       setLoading(false);
     };
 
-    fetchData();
+    fetchData(); */
+    setRawData(countryData);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
